@@ -1,0 +1,22 @@
+<section class="tasks">
+    <h1 class="tasks-title">Today</h1>
+
+    <ul class="tasks-list">
+        @for (task of tasks(); track task.id) {
+        <li class="tasks-task"><input type="checkbox" (change)="onTaskCompletedChange(task.id)" />
+            {{task.description}}</li>
+        } @empty {
+        <p class="tasks-empty">No tasks found</p>
+        }
+    </ul>
+
+    <form class="tasks-form" (submit)="addTask($event)">
+        <input autofocus aria-label="New task description" aria-required="true" type="text" class="tasks-input"
+            placeholder="Add a new task" (change)="onNewTaskDescriptionChange($event)" [value]="newTask().description"
+            (keyup.enter)="onNewTaskDescriptionChange($event)" tabindex="1" />
+
+        <button aria-label="Add task" class="tasks-add-button" [disabled]="newTask().description.length === 0"
+            type="submit" tabindex="2">Add
+            Task</button>
+    </form>
+</section>
