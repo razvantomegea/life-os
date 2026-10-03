@@ -2,6 +2,12 @@ import { Component, signal } from '@angular/core';
 
 import { Task } from './task';
 
+const emptyTask: Task = {
+  id: 0,
+  description: '',
+  completed: false,
+};
+
 @Component({
   imports: [],
   selector: 'app-tasks',
@@ -9,11 +15,7 @@ import { Task } from './task';
   templateUrl: './tasks.html',
 })
 export class Tasks {
-  public newTask = signal<Task>({
-    id: 0,
-    description: '',
-    completed: false,
-  });
+  public newTask = signal<Task>(emptyTask);
 
   public readonly tasks = signal<Task[]>([]);
 
@@ -22,7 +24,7 @@ export class Tasks {
     event.stopPropagation();
 
     this.tasks.update(tasks => [...tasks, { ...this.newTask(), id: tasks.length + 1 }]);
-    this.newTask.set({ id: 0, description: '', completed: false });
+    this.newTask.set(emptyTask);
   }
 
   public onNewTaskDescriptionChange(event: Event) {
