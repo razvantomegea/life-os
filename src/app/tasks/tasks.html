@@ -1,7 +1,18 @@
 <section class="tasks">
-    <h1 class="tasks-title">Today</h1>
+    <header class="tasks-header">
+        <h1 class="tasks-title">Tasks</h1>
+        <div class="tasks-filters">
+            @for (filter of filters; track filter) {
+            <app-task-filter [label]="filter" [isActive]="isFilterActive(filter)"
+                (filterChange)="onFilterChange(filter)"></app-task-filter>
+            }
 
-    @let myTasks = tasks();
+            <input type="text" class="tasks-input" placeholder="Search tasks" (input)="onSearchChange($event)"
+                [value]="searchFilter()" />
+        </div>
+    </header>
+
+    @let myTasks = filteredTasks();
 
     @if (myTasks.length > 0) {
     <ul class="tasks-list">
@@ -16,7 +27,9 @@
     <p class="tasks-empty">No tasks found</p>
     }
 
-    <form class="tasks-form" (submit)="addTask($event)">
+    <span>{{remainingTasks()}} remaining</span>
+
+    <form class="tasks-form" (submit)="onAddTask($event)">
         <input autofocus aria-label="New task description" aria-required="true" type="text" class="tasks-input"
             placeholder="Add a new task" (input)="onNewTaskDescriptionChange($event)" [value]="newTask().description"
             (keyup.enter)="onNewTaskDescriptionChange($event)" tabindex="0" />

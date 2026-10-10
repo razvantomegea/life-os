@@ -134,4 +134,4 @@ Use the hint ladder when stuck. Review after the human's attempt. End with a sho
 
 ## Current phase
 
-See [docs/roadmap.md](docs/roadmap.md). Start with [docs/curriculum/01-tasks.md](docs/curriculum/01-tasks.md).
+See [docs/roadmap.md](docs/roadmap.md). Current brief: [docs/curriculum/02-filtering.md](docs/curriculum/02-filtering.md) (Phase 1 complete).

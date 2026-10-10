@@ -58,12 +58,12 @@ App shell
 
 ## Acceptance criteria
 
-- [ ] App runs and shows Today with seed or empty + add.
-- [ ] Toggle updates completed state without page reload.
-- [ ] Add appends a task and clears or resets the input appropriately.
-- [ ] `@for` uses a stable track (e.g. id).
-- [ ] Interactive elements are labeled / reachable by keyboard.
-- [ ] You can explain where state lives and what causes re-render.
+- [x] App runs and shows Today with seed or empty + add.
+- [x] Toggle updates completed state without page reload.
+- [x] Add appends a task and clears or resets the input appropriately.
+- [x] `@for` uses a stable track (e.g. id).
+- [x] Interactive elements are labeled / reachable by keyboard.
+- [x] You can explain where state lives and what causes re-render.
 
 ## Non-goals
 
