@@ -39,7 +39,7 @@ export class Tasks {
 
     switch (this.activeFilter()) {
       case ActiveFilter.Today:
-        return filteredBySearch && task.dueDate?.toISOString() === new Date().toISOString();
+        return filteredBySearch && task.dueDate?.getDay() === new Date().getDay();
       case ActiveFilter.Completed:
         return filteredBySearch && task.completed;
       default:
